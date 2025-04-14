@@ -12,9 +12,12 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        {/* Redirect root ("/") to the Register page */}
+        <Route path="/" element={<Register />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        
+
         <Route path="/dashboard" element={
           <PrivateRoute role="student">
             <Dashboard />
