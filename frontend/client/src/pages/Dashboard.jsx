@@ -1,44 +1,41 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserCircle, FaComments, FaExclamationTriangle } from 'react-icons/fa';
 
 function Dashboard() {
   const [studentName, setStudentName] = useState("");
 
   useEffect(() => {
-   
     const name = localStorage.getItem("name");
     setStudentName(name || "Student");
   }, []);
 
   return (
-    <div className="bg-white text-black min-h-screen p-8">
-      <div className="max-w-3xl mx-auto bg-gray-100 rounded-lg shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-black flex items-center space-x-2">
-          <i className="fas fa-user-circle text-blue-500 text-3xl"></i>
-          <span>Welcome, {studentName}</span>
-        </h1>
-        <p className="mt-6 text-lg text-gray-700">
-          You're logged in as a student. Here, you can give feedback or report any problems with teachers.
-        </p>
+    <div className="bg-white min-h-screen p-6 flex items-center justify-center">
+      <div className="bg-black w-full max-w-3xl rounded-xl shadow-xl p-8 md:p-10 text-center text-white">
         
-        <div className="mt-8">
-          <Link 
-            to="/feedback" 
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-300 ease-in-out"
-          >
-            <i className="fas fa-comments mr-2"></i>
-            Go to Feedback Page
-          </Link>
+        {/* Welcome Section */}
+        <div className="mb-6 flex flex-col items-center justify-center">
+          <FaUserCircle className="text-white text-5xl mb-2" />
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Welcome, {studentName}
+          </h1>
+          <p className="mt-3 text-base md:text-lg text-gray-300">
+            You're logged in as a student. You can submit feedback or report problems here.
+          </p>
         </div>
-        
-        <div className="mt-6">
+
+        {/* Buttons */}
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6">
           <Link 
-            to="/problem-feedback" 
-            className="inline-block px-6 py-3 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition duration-300 ease-in-out"
+            to="/feedback"
+            className="w-full md:w-auto px-6 py-3 bg-white text-black rounded-lg border border-white hover:bg-gray-200 transition-all duration-300 flex items-center justify-center"
           >
-            <i className="fas fa-exclamation-triangle mr-2"></i>
-            Report a Problem
+            <FaComments className="mr-2" />
+            Give Feedback
           </Link>
+
+        
         </div>
       </div>
     </div>
