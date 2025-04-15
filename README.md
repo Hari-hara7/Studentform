@@ -38,5 +38,5 @@ A simple and user-friendly Feedback Management System that allows students to su
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/feedback-management-system.git
+git clone https://github.com/Hari-hara7/Studentform.git
 cd feedback-management-system
